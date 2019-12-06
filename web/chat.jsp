@@ -12,8 +12,8 @@
 
 <%
     String login = request.getParameter("login");
-    if (session.getAttribute("login") == null){
-    	session.setAttribute("login", login);
+    if (application.getAttribute("login") == null){
+    	application.setAttribute("login", login);
     }
 %>
 <!DOCTYPE html>
@@ -21,10 +21,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
-        Witaj <%= session.getAttribute("login")%>
+        Witaj <%= application.getAttribute("login")%>
     </title>
 </head>
 <body>
-    <h1>Witaj: <%=session.getAttribute("login")%></h1>
+    <h1>Witaj: <%=application.getAttribute("login")%></h1>
 </body>
 </html>
