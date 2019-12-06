@@ -16,8 +16,8 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("login");
-		if(request.getAttribute("login") == null){
-			request.setAttribute("login", login);
+		if(request.getSession().getAttribute("login") == null){
+			request.getSession().setAttribute("login", login);
 		}
 
 		response.setCharacterEncoding("UTF-8");
@@ -25,12 +25,12 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		writer.println("<html>");
 		writer.println("<head>");
-		writer.println("<title>Witaj " + request.getAttribute("login"));
+		writer.println("<title>Witaj " + request.getSession().getAttribute("login"));
 		writer.println("</title>");
 		writer.println("</head>");
 		writer.println("<body>");
 		writer.println("<h1>");
-		writer.println("Witaj: " + request.getAttribute("login"));
+		writer.println("Witaj: " + request.getSession().getAttribute("login"));
 		writer.println("</h1>");
 		writer.println("</body>");
 		writer.println("</html>");
